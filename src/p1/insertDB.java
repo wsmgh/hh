@@ -24,6 +24,9 @@ public class insertDB extends HttpServlet{
 		response.setContentType("text/plain;charset=utf-8");
 		String password=request.getParameter("password");
 		String username=request.getParameter("username");
+		
+		System.out.println("insert users(username,password) values('"+username+"'"+","+"'"+password+"'"+")");
+		
 		try {
 			// //////////
 			// do something

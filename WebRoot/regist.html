@@ -19,14 +19,14 @@
    		 	var username=$("#rg_username").val();
     		var password=$("#rg_password").val();
    		 
-   		 	$.post(
-   		 		"hh/insertDB",
-   		 		{
-   		 			username:username,
-   		 			password:password
-   		 		}
-   		 	
-   		 	);
+   		 	$.post("/hh/insertDB",
+           	{
+            	 username:username,
+            	 password:password
+           	}
+           	
+            
+      		);
    		 	
    		 	
    		 	
