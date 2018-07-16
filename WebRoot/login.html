@@ -7,27 +7,76 @@
 </script>
 <script>
     $(document).ready(function(){
-        $("#p1").click(function(){
+    
+    var username=$("#ip_username").val();
+    var password=$("#ip_password").val();
+    
+    // var cityname = $("#cityname").val();
+     $("#bt_sign").click(
+     
+     function () {
+     
+     $("#p1").text(username);
+     $("#p2").text(password);
+     
+     $.post("/hh/search",
+           	{
+            	 user:username
+           	},
+           	
+            function(data,status){
             
-            $.post("/hh/login",
-            	    {
-            	        user:"菜鸟",
-            	        password:"123"
-            	    },
-            	        function(data,status){
-            	        alert("数据: \n" + data + "\n状态: " + status);
-            	    });
-        });
+            	var o=eval('('+data+')');
+            
+            	if(password==o.password)
+           		{
+           		 	window.location.href="http://520-096:8080/hh/qa.html";
+            		
+            	}
+            	else
+            	{
+            		 alert("this user dosen't exist !");
+            	}
+            	
+            	
+            }
+      );
+     
+     
+     }
+     
+     );
+        
     });
 </script>
 </head>
 
 <body>
-<h2>这是一个标题</h2>
-<p>这是一个段落。</p>
-<p>这是另一个段落。</p>
-<p>这是另一个段落。</p>
-click send post to http://localhost:8080/weather/login?user=菜鸟&password=123
-<button id="p1">Click</button>
+
+
+<div align="center">
+username：
+<input type="text" id="ip_username"/>     <br/><br/><br/>
+password：
+<input type="text" id="ip_password"/>     <br/><br/><br/>
+</div>
+
+
+
+<div align="center">
+<button id="bt_sign">
+sign in
+</button>
+</div>
+
+
+
+<p id="p1">
+</p>
+
+
+<p id="p2">
+</p>
+
 </body>
 </html>
