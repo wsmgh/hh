@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
-public class insertDB extends HttpServlet{
+public class updateDB extends HttpServlet{
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
@@ -22,14 +22,14 @@ public class insertDB extends HttpServlet{
 			throws ServletException, IOException {
 
 		response.setContentType("text/plain;charset=utf-8");
-		String password=request.getParameter("password");
+		int score =Integer.parseInt(request.getParameter("score"));
 		String username=request.getParameter("username");
 		try {
 			// //////////
 			// do something
 			// //////////
 			DBConnection db = new DBConnection();
-			db.execute("insert users(username,password) values('"+username+"'"+","+"'"+password+"'"+")");
+			db.execute("update users set score="+score+" where username='"+username+"'");
               db.close();
 		
 		} catch (Exception e) {
@@ -39,11 +39,11 @@ public class insertDB extends HttpServlet{
 
 	public static void main(String[] args) {
 		
-		String password="tt";
-		String username="tt";
+		int score=75;
+		String username="hh";
 		DBConnection db = new DBConnection();
 		
-		db.execute("insert users(username,password) values('"+username+"'"+","+"'"+password+"'"+")");
+		db.execute("update users set score="+score+" where username='"+username+"'");
 		
 		System.out.println("done");
 		

@@ -30,6 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<a href="search.html">search</a><br/>
     	<a href="qa.html">dati</a><br/>
     	<a href="test.html">test</a><br/>
+    	<a href="regist.html">regist</a>
     </div>
   </body>
 </html>

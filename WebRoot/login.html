@@ -8,18 +8,15 @@
 <script>
     $(document).ready(function(){
     
-    var username=$("#ip_username").val();
-    var password=$("#ip_password").val();
+   		var username=$("#ip_username").val();
+    	var password=$("#ip_password").val();
     
     // var cityname = $("#cityname").val();
      $("#bt_sign").click(
      
      function () {
-     
-     $("#p1").text(username);
-     $("#p2").text(password);
-     
-     $.post("/hh/search",
+  
+    	$.post("/hh/search",
            	{
             	 user:username
            	},
@@ -27,15 +24,22 @@
             function(data,status){
             
             	var o=eval('('+data+')');
-            
-            	if(password==o.password)
-           		{
-           		 	window.location.href="http://520-096:8080/hh/qa.html";
-            		
+            	
+            	if(o.username=="")
+            	{
+            		alert("this user dosen't exist !");
             	}
             	else
             	{
-            		 alert("this user dosen't exist !");
+            		if(password==o.password)
+           			{
+           		 		window.location.href="http://520-096:8080/hh/qa.html?username="+username+"&password="+password;
+            		
+            		}
+            		else
+            		{
+            			 alert("password is wrong!");
+            		}
             	}
             	
             	
@@ -69,14 +73,6 @@ sign in
 </button>
 </div>
 
-
-
-<p id="p1">
-</p>
-
-
-<p id="p2">
-</p>
 
 </body>
 </html>

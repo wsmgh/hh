@@ -28,6 +28,17 @@
   	<url-pattern>/search</url-pattern>
   </servlet-mapping>
  
+ 
+ <servlet>
+  	<servlet-name>Search_for_questions</servlet-name>
+  	<servlet-class>p1.search_for_questions</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Search_for_questions</servlet-name>
+  	<url-pattern>/search_for_questions</url-pattern>
+  </servlet-mapping>
+ 
+ 
  <servlet>
   	<servlet-name>WxServlet</servlet-name>
   	<servlet-class>wechat.WxServlet</servlet-class>
@@ -47,6 +58,16 @@
   	<url-pattern>/insertDB</url-pattern>
   </servlet-mapping>
   
+ 
+ <servlet>
+  	<servlet-name>updateDB</servlet-name>
+  	<servlet-class>p1.updateDB</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>updateDB</servlet-name>
+  	<url-pattern>/updateDB</url-pattern>
+  </servlet-mapping>
+ 
  
 </web-app>
 

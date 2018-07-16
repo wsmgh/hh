@@ -15,7 +15,7 @@ import org.json.JSONObject;
 
 import p1.DBConnection;
 
-public class Search extends HttpServlet {
+public class search_for_questions extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -26,7 +26,7 @@ public class Search extends HttpServlet {
 			throws ServletException, IOException {
 		
 		response.setContentType("text/plain;charset=utf-8");
-		String user = request.getParameter("user");
+		String q_id = request.getParameter("id");
 		//System.out.println("id:" + student_id);
 		
 		try {
@@ -34,25 +34,25 @@ public class Search extends HttpServlet {
 			// do something
 			////////////
 			DBConnection db = new DBConnection();
-			ResultSet rs = db.executeQuery("select * from users where username = '" +user+"'");
+			ResultSet rs = db.executeQuery("select * from qusetions where id = '" +q_id+"'");
 			
 
 			String id = "";
-			String score = "";
-			String username = "";
-			String password = "";
-			//String c3 = "";
-			//String c4="";
-			//String an="";
+			String q = "";
+			String c1 = "";
+			String c2 = "";
+			String c3 = "";
+			String c4="";
+			String an="";
 			
 			while(rs.next()){
 				id=rs.getString(1);
-				score=rs.getString(2);
-				username=rs.getString(3);
-				password=rs.getString(4);
-//				c3=rs.getString(5);
-//				c4=rs.getString(6);
-//				an=rs.getString(7);
+				q=rs.getString(2);
+				c1=rs.getString(3);
+				c2=rs.getString(4);
+				c3=rs.getString(5);
+				c4=rs.getString(6);
+				an=rs.getString(7);
 			}
 			db.close();
 			
@@ -61,12 +61,12 @@ public class Search extends HttpServlet {
 			JSONObject obj = new JSONObject();
 			
 			obj.put("id", id);
-			obj.put("score", score);
-			obj.put("username", username);
-			obj.put("password", password);
-//			obj.put("c3", c3);
-//			obj.put("c4", c4);
-//			obj.put("an", an);
+			obj.put("q", q);
+			obj.put("c1", c1);
+			obj.put("c2", c2);
+			obj.put("c3", c3);
+			obj.put("c4", c4);
+			obj.put("an", an);
 			
 			System.out.println(obj.toString());
 			out.print(obj.toString());
@@ -81,31 +81,37 @@ public class Search extends HttpServlet {
 		try {
 			
 			DBConnection db = new DBConnection();
-			ResultSet rs = db.executeQuery("select * from users where username = '" +student_id+"'");
+			ResultSet rs = db.executeQuery("select * from qusetions where id = '" +student_id+"'");
 			
 
 			String id = "";
-			String score = "";
-			String username = "";
-			String password = "";
+			String q = "";
+			String c1 = "";
+			String c2 = "";
+			String c3 = "";
+			String c4="";
+			String an="";
 			
 			while(rs.next()){
 				id=rs.getString(1);
-				score=rs.getString(2);
-				username=rs.getString(3);
-				password=rs.getString(4);
-//				c3=rs.getString(5);
-//				c4=rs.getString(6);
-//				an=rs.getString(7);
+				q=rs.getString(2);
+				c1=rs.getString(3);
+				c2=rs.getString(4);
+				c3=rs.getString(5);
+				c4=rs.getString(6);
+				an=rs.getString(7);
 			}
 			db.close();
 			
 			JSONObject obj = new JSONObject();
 			
 			obj.put("id", id);
-			obj.put("score", score);
-			obj.put("username", username);
-			obj.put("password", password);
+			obj.put("q", q);
+			obj.put("c1", c1);
+			obj.put("c2", c2);
+			obj.put("c3", c3);
+			obj.put("c4", c4);
+			obj.put("an", an);
 			
 			System.out.println(obj.toString());
 			
@@ -115,7 +121,7 @@ public class Search extends HttpServlet {
 	}
 	
 	public static void main(String[] args) {
-		doSearch("hh");
+		doSearch("1");
 	}
 
 }

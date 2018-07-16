@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js">
+</script>
+<script>
+	
+	 $(document).ready(function(){
+    	
+   		
+   		
+   		 $("#bt").click(
+   		 
+   		 function(){
+   		 
+   		 
+   		 	var username=$("#rg_username").val();
+    		var password=$("#rg_password").val();
+   		 
+   		 	$.post(
+   		 		"hh/insertDB",
+   		 		{
+   		 			username:username,
+   		 			password:password
+   		 		}
+   		 	
+   		 	);
+   		 	
+   		 	
+   		 	
+   		 	
+   		 	alert(username+password);
+   		 	
+   		 }
+   		 
+   		 
+   		 
+   		 );
+   		
+   		
+        
+    });
+	
+	</script>
+</head>
+
+<body>
+    
+    <div align="center">
+    regist for a new account (^_^) <br/>
+    welcome !! <br/><br/><br/>
+    </div>
+    
+    <div align="center">
+    your username:
+    <input id="rg_username" type="text"/>   <br/><br/><br/>
+    
+    your password:
+    <input id="rg_password" type="text"/>   <br/><br/><br/>
+    </div>
+    
+    
+    <div align="center">
+    <button id="bt">注册</button>
+    </div>
+    
+    
+  </body>
+</html>
