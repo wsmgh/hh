@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>sign successfully</title>
+<script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js">
+</script>
+
+<script>
+    $(document).ready(function(){
+    
+   	var url = location.search; //获取url中"?"符后的字串 ('?modFlag=business&role=1')
+   	
+   	
+   			var str=url.substr(1);
+			
+			var strs = str.split( "&" );
+			
+			var username=strs[0];
+			
+			var password=strs[1];
+			
+			var t;
+			
+			t=username.split("=");  username=t[1];
+			
+			t=password.split("=");  password=t[1];	
+   	
+   	
+     $("#a").click(
+     
+			
+			alert(password);
+     
+   		window.location.href="http://520-096:8080/hh/qa.html?username="+username+"&password="+password;
+     
+     );
+        
+    });
+</script>
+
+
+ </head>
+  
+  
+  <body>
+  
+    <div align="center">
+    	<a href="qa.html" id="a">答题</a> <br/><br/>
+    	<a href="graph.html">成绩单</a>
+    	
+    </div>
+    
+  </body>
+</html>
