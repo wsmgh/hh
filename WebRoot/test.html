@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>test.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+   <script>
+       $(document).ready(function(){
+        $("#bn").click(function(){
+          	//var sid = $("#sid").val();
+            $.post("/hh/search",
+            	    {
+            	        id: 1
+            	    },
+            	    function(data,status){
+            	        var o=eval('('+data+')');
+            	        
+            	        $("#p1").text(o.q);
+            	        $("#p2").text(o.c1);
+            	        $("#p3").text(o.c2);
+            	        $("#p4").text(o.c3);
+            	        $("#p5").text(o.c4);
+            	        $("#p1").text(data);
+            	    });
+        });
+       
+
+    });
+   </script>
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+    <button id="bn">点一下</button>
+    <p id="p1"></p><br/>
+    <p id="p2"></p><br/>
+    <p id="p3"></p><br/>
+    <p id="p4"></p><br/>
+    <p id="p5"></p><br/>
+  </body>
+</html>
