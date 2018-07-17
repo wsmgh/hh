@@ -34,7 +34,7 @@ public class search_for_questions extends HttpServlet {
 			// do something
 			////////////
 			DBConnection db = new DBConnection();
-			ResultSet rs = db.executeQuery("select * from qusetions where id = '" +q_id+"'");
+			ResultSet rs = db.executeQuery("select * from questions where id = '" +q_id+"'");
 			
 
 			String id = "";
@@ -81,7 +81,7 @@ public class search_for_questions extends HttpServlet {
 		try {
 			
 			DBConnection db = new DBConnection();
-			ResultSet rs = db.executeQuery("select * from qusetions where id = '" +student_id+"'");
+			ResultSet rs = db.executeQuery("select * from questions where id = '" +student_id+"'");
 			
 
 			String id = "";

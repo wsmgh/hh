@@ -20,21 +20,6 @@
     <script type="text/javascript">
         $(document).ready(function(){
         
-			var url = location.search; //获取url中"?"符后的字串 ('?modFlag=business&role=1')
-
-			var str=url.substr(1);
-			
-			var strs = str.split( "&" );
-			
-			var username=strs[0];
-			
-			var password=strs[1];
-			
-			var t;
-			
-			t=username.split("=");  username=t[1];
-			
-			t=password.split("=");  password=t[1];
 			
 			
         var an1,an2,an3,an4;
@@ -117,6 +102,23 @@
         		if(s4==an4)score+=25;
         		
         		
+        		var url = location.search; //获取url中"?"符后的字串 ('?modFlag=business&role=1')
+
+			var str=url.substr(1);
+			
+			var strs = str.split( "&" );
+			
+			var username=strs[0];
+			
+			var password=strs[1];
+			
+			var t;
+			
+			t=username.split("=");  username=t[1];
+			
+			t=password.split("=");  password=t[1];
+        		
+        		
         		$.post("/hh/updateDB",
         		
         			{
@@ -133,7 +135,10 @@
         });
     </script>
 </head>
-<body>
+
+
+
+<body background="images\image_5.jpg">
 <div>
     <button id="bn" type="button" class="btn btn-success">开始做题</button>
     </div> 

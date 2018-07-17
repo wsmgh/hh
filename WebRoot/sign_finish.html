@@ -27,12 +27,12 @@
 			t=password.split("=");  password=t[1];	
    	
    	
-     $("#a").click(
+     $("#a").click(function(){
      
-			
-			alert(password);
+     	alert(username+"/"+password);
+     	window.location.href="qa.html?username="+username+"&password="+password;
      
-   		window.location.href="http://520-096:8080/hh/qa.html?username="+username+"&password="+password;
+     }
      
      );
         
